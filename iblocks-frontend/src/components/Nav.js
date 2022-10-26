@@ -15,7 +15,7 @@ var logged = false;
 var response = {};
 dotenv.config();
 function Nav(props) {
-    const google_Credential_id = process.env.REACT_APP_GOOGLE_ID
+    const google_Credential_id = '461359349344-8vrg7pj97v7ocmlelj9vt1rgu83ier01.apps.googleusercontent.com'
     const his = useHistory();
     const [loggedin,setloggedin] = useState(false);
     const img_styling = {

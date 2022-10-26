@@ -11,13 +11,13 @@ dotenv.config();
 const app = express();
 app.use(bodyParser.json({extended:1}));
 app.use(cors({
-    origin:process.env.FRONTEND_URL
+    origin:'http://localhost:3000'
 }));
 app.use(bodyParser.urlencoded({extended:1}));
 
 var gid="";
 /*mongoose setup */
-const mogoose_connection_url = process.env.MONGOOSE_CONNECTION_URL;
+const mogoose_connection_url = "mongodb+srv://shivasai:shivasai@cluster0.nrpiasi.mongodb.net/?retryWrites=true&w=majority"
 mongoose.connect(mogoose_connection_url,{useNewUrlParser:true,useUnifiedTopology: true});
 
 /*constants in app */

@@ -131,7 +131,7 @@ const Editor = React.memo((props)=> {
         {
             setLanguage({
                 language:"python",
-                version:'3.9.4'
+                version:'3.10.0'
             })
             if(!newCode||contentcode==="")
             {
@@ -143,7 +143,7 @@ const Editor = React.memo((props)=> {
         {
             setLanguage({
                 language:'javascript',
-                version:'1.7.5'
+                version:'16.3.0'
             });
             if(!newCode||contentcode==="")
             {
@@ -309,7 +309,7 @@ const Editor = React.memo((props)=> {
                         'content_type':'application/json'
                     }
                     }).then((res)=>{
-                        genlink=`${process.env.REACT_APP_FRONTEND}/${id}`;;
+                        genlink=`${'http://localhost:3000'}/${id}`;;
                         setCodelink(genlink);
                         setChanged(false);
                         setvisible(true);
@@ -377,7 +377,9 @@ const Editor = React.memo((props)=> {
                     setloading(true);
                     axiosbackend.get("/unqid")
                     .then((data)=>{
+                        console.log("i am here");
                         id=data.data.link
+                        console.log(id);
                         const post_data = {
                             language:language.language,
                             version:language.version,
@@ -388,7 +390,7 @@ const Editor = React.memo((props)=> {
                             'content_type':'application/json'
                         }
                         }).then((res)=>{
-                            genlink=`${process.env.REACT_APP_FRONTEND}/${id}`;
+                            genlink=`${'http://localhost:3000'}/${id}`;
                             setCodelink(genlink);
                             setChanged(false);
                             setvisible(true);
@@ -515,7 +517,7 @@ const Editor = React.memo((props)=> {
                         <InputOutlinedIcon style={icon_styles}/>
                         <h1 className="laro heading">Input</h1>
                     </div>
-                    <textarea className="laro" placeholder="enter your input here " onChange={handleInput} className="textareas"  name="input" cols="20" rows="7"></textarea>
+                    <textarea className="laro textareas" placeholder="enter your input here " onChange={handleInput}  name="input" cols="20" rows="7"></textarea>
                 </div>
                 {
                     loadouput? <div className="loader_output" > <CircularProgress style={spinner_styles} size="4rem" thickness={5} /> </div>:null
@@ -525,7 +527,7 @@ const Editor = React.memo((props)=> {
                         <InputOutlinedIcon style={output_icon_style} />
                         <h1 className="laro heading">Output</h1>
                     </div>
-                    <textarea placeholder="click run to generate the output" className="laro" style={err? {"color":"red"}:{"color":'black'}} className="textareas" value={output} readOnly name="ouput" id="" cols="20" rows="7"></textarea>
+                    <textarea placeholder="click run to generate the output" className="laro textareas" style={err? {"color":"red"}:{"color":'black'}} value={output} readOnly name="ouput" id="" cols="20" rows="7"></textarea>
                 </div>
                 <div className="filename">
                     <input className="laro" onChange={handlefilename} type="text" placeholder="filename"/>
