@@ -46,7 +46,7 @@ function Nav(props) {
                 
                 <img style={img_styling} src={codelogo} alt="codelogo" />
                 <div className="nav_heading">
-                    <h1 className="main_heading" >IBlocks</h1>
+                    <h1 className="main_heading" >OnlineCompiler</h1>
                 </div>
             </div>
             <div

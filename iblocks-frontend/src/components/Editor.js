@@ -127,6 +127,17 @@ const Editor = React.memo((props)=> {
                 setNewCode(false);
             }
         }
+        else if(lan==="c"){
+            setLanguage({
+                language:'c',
+                version:'10.2.0'
+            })
+            if(!newCode||contentcode===""){
+                console.log(templates[3]);
+                setContentcode(templates[3]);
+                setNewCode(false);
+            }
+        }
         else if(lan==="python")
         {
             setLanguage({
@@ -470,6 +481,7 @@ const Editor = React.memo((props)=> {
                             <option custom="ths is version"  value="python">Python</option>
                             <option custom="ths is version"  value="c_cpp">C++</option>
                             <option custom="ths is version"  value="javascript">Javascript</option>
+                            <option custom="ths is version"  value="c">C</option>
                         </select>
                         <select onChange={handletheme} className="select_bars" name="theme" id="theme">
                             <option  value="dracula">dark theme</option>
@@ -478,7 +490,7 @@ const Editor = React.memo((props)=> {
                     </div>
                     <AceEditor
                         onChange={handleContent}
-                        mode={language.language==="c++"? "c_cpp":language.language}
+                        mode={language.language==="c++"||"c"? "c_cpp":language.language}
                         theme={theme}
                         value={contentcode}
                         style={ace_editor_stylings}

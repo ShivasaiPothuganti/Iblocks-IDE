@@ -3,7 +3,7 @@ import "./Devteam.css"
 function Devteam() {
     return (
         <div className="devteam">
-           <h1>Made by <span>Shivasai</span></h1> 
+           <h1>Made by <span>Shivasai abhinav vikas</span></h1> 
         </div>
     )
 }
